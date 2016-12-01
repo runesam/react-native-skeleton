@@ -1,10 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+var React = require('react');
+var DayItem = require('./src/day-item');
 import {
   AppRegistry,
   StyleSheet,
@@ -12,25 +7,20 @@ import {
   View
 } from 'react-native';
 
-export default class weekdays extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saterday'];
 
+var weekdays = React.createClass({
+  render:function() {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Days of the week:
+          </Text>
+          <DayItem Days={DAYS[0]}></DayItem>
+        </View>
+      );
+  }
+});
 const styles = StyleSheet.create({
   container: {
     flex: 1,
