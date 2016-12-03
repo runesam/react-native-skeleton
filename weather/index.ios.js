@@ -1,4 +1,5 @@
 var React = require('react');
+const Api = require('./utils/api');
 import {
   AppRegistry,
   StyleSheet,
@@ -11,13 +12,19 @@ import {
 var Weather = React.createClass({
   getInitialState:function(){
     return {
-      pins : new Array()
+      pins : new Array(),
+      city : '',
+      temp : '',
+      desc : ''
     }
   },
   onRegionChangeComplete:function(region){
     let temp = [{'latitude':region.latitude,'longitude':region.longitude}];
     this.setState({pins:this.state.pins.concat([temp])});
-    console.log(region)
+    Api(region.latitude,region.longitude).then((data) => {
+      // this.setState(data);
+      console.log(data)
+    });
     console.log(this.state.pins)
   },
   render:function(){
