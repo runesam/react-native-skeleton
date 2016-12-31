@@ -1,0 +1,2 @@
+export PATH=$PATH{}:/Users/runesam/Library/android-sdk/tools
+export PATH=$PATH{}:/Users/runesam/Library/android-sdk/tools:/Users/runesam/Library/android/platform-tools
